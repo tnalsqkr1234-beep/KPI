@@ -11,8 +11,7 @@
   --navy: #0f2240;
   --navy2: #1a3560;
   --blue: #2563eb;
-  --blue-light: #3b82f6;
-  --sky: #e8f0fe;
+  --sky: #eff6ff;
   --green: #059669;
   --green-light: #d1fae5;
   --amber: #d97706;
@@ -20,7 +19,6 @@
   --red: #dc2626;
   --red-light: #fee2e2;
   --purple: #7c3aed;
-  --purple-light: #ede9fe;
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
@@ -28,433 +26,109 @@
   --gray-500: #64748b;
   --gray-700: #334155;
   --gray-900: #0f172a;
-  --white: #ffffff;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
   --radius: 16px;
   --radius-sm: 10px;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans KR',sans-serif; background:#f0f4f8; color:var(--gray-900); min-height:100vh; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+.app-header { background:var(--navy); padding:0; position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(0,0,0,0.25); }
+.header-inner { max-width:900px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+.header-brand { display:flex; align-items:center; gap:12px; }
+.header-logo { width:36px; height:36px; background:linear-gradient(135deg,#3b82f6,#60a5fa); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.header-title h1 { color:white; font-size:15px; font-weight:700; }
+.header-title p { color:rgba(255,255,255,0.5); font-size:11px; margin-top:1px; }
+.header-badge { background:rgba(59,130,246,0.2); border:1px solid rgba(59,130,246,0.4); color:#93c5fd; font-size:11px; font-weight:600; padding:4px 10px; border-radius:20px; }
 
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background: #f0f4f8;
-  color: var(--gray-900);
-  min-height: 100vh;
-  line-height: 1.6;
-}
+.main { max-width:900px; margin:0 auto; padding:28px 24px; }
 
-/* ── HEADER ── */
-.app-header {
-  background: var(--navy);
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.25);
-}
-.header-inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 16px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.header-brand { display: flex; align-items: center; gap: 12px; }
-.header-logo {
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-}
-.header-title { color: white; }
-.header-title h1 { font-size: 15px; font-weight: 700; letter-spacing: -0.3px; }
-.header-title p { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
-.header-badge {
-  background: rgba(59,130,246,0.2);
-  border: 1px solid rgba(59,130,246,0.4);
-  color: #93c5fd;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-family: 'DM Mono', monospace;
-}
+/* HOW IT WORKS */
+.how-card { background:linear-gradient(135deg,#1e3a5f,#2563eb); border-radius:var(--radius); padding:22px 24px; margin-bottom:20px; color:white; }
+.how-title { font-size:14px; font-weight:700; margin-bottom:14px; opacity:0.9; }
+.how-steps { display:flex; gap:0; }
+.how-step { flex:1; text-align:center; position:relative; }
+.how-step:not(:last-child)::after { content:'→'; position:absolute; right:-8px; top:14px; font-size:16px; color:rgba(255,255,255,0.5); }
+.step-circle { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; margin:0 auto 8px; }
+.step-label { font-size:11px; opacity:0.8; line-height:1.4; }
 
-/* ── MAIN LAYOUT ── */
-.main { max-width: 1080px; margin: 0 auto; padding: 32px 28px; }
+/* CARDS */
+.card { background:white; border-radius:var(--radius); box-shadow:var(--shadow-md); overflow:hidden; margin-bottom:16px; }
+.card-header { background:linear-gradient(135deg,var(--navy),var(--navy2)); padding:18px 22px; color:white; display:flex; align-items:center; gap:10px; }
+.card-header .step-num { width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+.card-header h2 { font-size:14px; font-weight:700; }
+.card-header p { font-size:11px; opacity:0.65; margin-top:2px; }
+.card-body { padding:22px; }
 
-/* ── UPLOAD SECTION ── */
-.upload-card {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-.upload-card-header {
-  background: linear-gradient(135deg, var(--navy), var(--navy2));
-  padding: 20px 24px;
-  color: white;
-  display: flex; align-items: center; gap: 10px;
-}
-.upload-card-header h2 { font-size: 15px; font-weight: 700; }
-.upload-card-header p { font-size: 12px; opacity: 0.65; margin-top: 2px; }
-.step-num {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; flex-shrink: 0;
-}
-.upload-body { padding: 24px; }
+/* DROP ZONE */
+.drop-zone { border:2px dashed var(--gray-200); border-radius:var(--radius-sm); padding:32px 20px; text-align:center; cursor:pointer; transition:all 0.2s; background:var(--gray-50); position:relative; }
+.drop-zone:hover, .drop-zone.active { border-color:var(--blue); background:var(--sky); }
+.drop-zone input { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; }
+.drop-icon { font-size:32px; margin-bottom:8px; }
+.drop-title { font-size:14px; font-weight:700; color:var(--navy); }
+.drop-sub { font-size:12px; color:var(--gray-400); margin-top:4px; }
+.drop-chips { display:flex; justify-content:center; gap:6px; margin-top:10px; flex-wrap:wrap; }
+.chip { background:var(--gray-100); color:var(--gray-500); font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; font-family:'DM Mono',monospace; }
+.chip.hi { background:#dbeafe; color:var(--blue); }
 
-/* Drop zone */
-.drop-zone {
-  border: 2px dashed var(--gray-200);
-  border-radius: var(--radius-sm);
-  padding: 36px 24px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: var(--gray-50);
-  position: relative;
-}
-.drop-zone:hover, .drop-zone.active {
-  border-color: var(--blue);
-  background: #eff6ff;
-}
-.drop-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-.drop-icon { font-size: 36px; margin-bottom: 10px; }
-.drop-title { font-size: 14px; font-weight: 700; color: var(--navy); }
-.drop-sub { font-size: 12px; color: var(--gray-400); margin-top: 5px; line-height: 1.5; }
-.drop-chips { display: flex; justify-content: center; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
-.chip {
-  background: var(--gray-100);
-  color: var(--gray-500);
-  font-size: 11px; font-weight: 600;
-  padding: 3px 10px; border-radius: 20px;
-  font-family: 'DM Mono', monospace;
-}
-.chip.highlight { background: #dbeafe; color: var(--blue); }
+/* IMAGE PREVIEW */
+.preview-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); gap:8px; margin-top:12px; }
+.preview-item { position:relative; aspect-ratio:3/4; border-radius:8px; overflow:hidden; background:var(--gray-100); border:1.5px solid var(--gray-200); }
+.preview-item img { width:100%; height:100%; object-fit:cover; }
+.preview-item .rm { position:absolute; top:3px; right:3px; width:18px; height:18px; border-radius:50%; background:rgba(0,0,0,0.65); color:white; border:none; cursor:pointer; font-size:9px; display:flex; align-items:center; justify-content:center; }
+.preview-item .num { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.6)); color:white; font-size:9px; padding:6px 4px 3px; text-align:center; }
+.img-badge { display:inline-flex; align-items:center; gap:5px; background:#dbeafe; color:var(--blue); font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px; margin-top:10px; }
 
-/* Preview grid for images */
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 8px;
-  margin-top: 14px;
-}
-.preview-item {
-  position: relative;
-  aspect-ratio: 3/4;
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--gray-100);
-  border: 1.5px solid var(--gray-200);
-}
-.preview-item img { width: 100%; height: 100%; object-fit: cover; }
-.preview-item .remove-btn {
-  position: absolute; top: 4px; right: 4px;
-  width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(0,0,0,0.6); color: white;
-  border: none; cursor: pointer; font-size: 10px;
-  display: flex; align-items: center; justify-content: center;
-}
-.preview-label {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  color: white; font-size: 9px; padding: 8px 5px 4px;
-  text-align: center; font-weight: 500;
-}
+.or-div { display:flex; align-items:center; gap:10px; margin:14px 0; color:var(--gray-400); font-size:12px; }
+.or-div::before,.or-div::after { content:''; flex:1; height:1px; background:var(--gray-200); }
 
-/* divider */
-.or-divider {
-  display: flex; align-items: center; gap: 12px;
-  margin: 16px 0; color: var(--gray-400); font-size: 12px;
-}
-.or-divider::before, .or-divider::after {
-  content: ''; flex: 1; height: 1px; background: var(--gray-200);
-}
+textarea { width:100%; min-height:90px; border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:12px; font-size:13px; line-height:1.6; resize:vertical; font-family:'Noto Sans KR',sans-serif; background:var(--gray-50); color:var(--gray-700); transition:border-color 0.2s; }
+textarea:focus { outline:none; border-color:var(--blue); background:white; }
 
-/* Paste area */
-.paste-wrap textarea {
-  width: 100%;
-  min-height: 100px;
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius-sm);
-  padding: 14px;
-  font-size: 13px;
-  line-height: 1.65;
-  resize: vertical;
-  font-family: 'Noto Sans KR', sans-serif;
-  color: var(--gray-700);
-  transition: border-color 0.2s;
-  background: var(--gray-50);
-}
-.paste-wrap textarea:focus { outline: none; border-color: var(--blue); background: white; }
+/* CONFIG */
+.config-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.field label { font-size:12px; font-weight:600; color:var(--gray-500); display:block; margin-bottom:6px; }
+.field input,.field select { width:100%; padding:10px 12px; border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); font-size:13px; background:var(--gray-50); color:var(--gray-900); font-family:'Noto Sans KR',sans-serif; transition:border-color 0.2s; }
+.field input:focus,.field select:focus { outline:none; border-color:var(--blue); background:white; }
 
-/* ── CONFIG ROW ── */
-.config-card {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  padding: 20px 24px;
-  margin-bottom: 20px;
-}
-.config-title { font-size: 13px; font-weight: 700; color: var(--gray-500); margin-bottom: 14px; letter-spacing: 0.5px; text-transform: uppercase; }
-.config-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-.field label { font-size: 12px; font-weight: 600; color: var(--gray-500); display: block; margin-bottom: 6px; }
-.field input, .field select {
-  width: 100%;
-  padding: 10px 13px;
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-  background: var(--gray-50);
-  color: var(--gray-900);
-  font-family: 'Noto Sans KR', sans-serif;
-  transition: border-color 0.2s;
-}
-.field input:focus, .field select:focus { outline: none; border-color: var(--blue); background: white; }
+/* GENERATE BTN */
+.gen-btn { width:100%; padding:16px; background:linear-gradient(135deg,var(--navy),var(--blue)); color:white; border:none; border-radius:var(--radius); font-size:16px; font-weight:700; cursor:pointer; margin-bottom:24px; transition:all 0.2s; font-family:'Noto Sans KR',sans-serif; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 4px 20px rgba(37,99,235,0.3); }
+.gen-btn:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(37,99,235,0.4); }
 
-/* ── ANALYZE BUTTON ── */
-.analyze-btn {
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(135deg, var(--navy), var(--blue));
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 28px;
-  transition: all 0.25s;
-  letter-spacing: -0.3px;
-  font-family: 'Noto Sans KR', sans-serif;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  box-shadow: 0 4px 20px rgba(37,99,235,0.35);
-}
-.analyze-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(37,99,235,0.45); }
-.analyze-btn:active { transform: translateY(0); }
-.analyze-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+/* RESULT */
+.result-box { display:none; }
 
-/* ── LOADING ── */
-.loading {
-  display: none;
-  background: white;
-  border-radius: var(--radius);
-  padding: 56px 24px;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-  margin-bottom: 24px;
-}
-.spinner-ring {
-  width: 48px; height: 48px;
-  border: 4px solid var(--gray-100);
-  border-top-color: var(--blue);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-.loading-msg { font-size: 14px; color: var(--gray-500); }
-.loading-sub { font-size: 12px; color: var(--gray-400); margin-top: 6px; }
-.loading-progress { width: 200px; height: 3px; background: var(--gray-100); border-radius: 2px; margin: 16px auto 0; overflow: hidden; }
-.loading-bar { height: 100%; background: var(--blue); border-radius: 2px; animation: progress 3s ease-in-out infinite; }
-@keyframes progress { 0% { width: 0%; } 70% { width: 85%; } 100% { width: 95%; } }
+/* PROMPT OUTPUT */
+.prompt-card { background:white; border-radius:var(--radius); box-shadow:var(--shadow-md); overflow:hidden; margin-bottom:16px; }
+.prompt-header { background:linear-gradient(135deg,#059669,#10b981); padding:16px 22px; display:flex; align-items:center; justify-content:space-between; }
+.prompt-header h3 { color:white; font-size:14px; font-weight:700; display:flex; align-items:center; gap:7px; }
+.copy-btn { background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.3); color:white; padding:7px 16px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans KR',sans-serif; transition:all 0.2s; display:flex; align-items:center; gap:5px; }
+.copy-btn:hover { background:rgba(255,255,255,0.3); }
+.copy-btn.copied { background:rgba(255,255,255,0.9); color:#059669; }
 
-/* ── RESULTS ── */
-.results { display: none; }
+.prompt-body { padding:20px 22px; }
+.prompt-text { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:16px; font-size:12.5px; line-height:1.7; color:var(--gray-700); white-space:pre-wrap; word-break:break-word; max-height:400px; overflow-y:auto; font-family:'Noto Sans KR',sans-serif; }
 
-/* Score summary */
-.result-header {
-  background: var(--navy);
-  border-radius: var(--radius);
-  padding: 24px 28px;
-  margin-bottom: 16px;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
-  box-shadow: var(--shadow-md);
-}
-.result-meta h2 { color: white; font-size: 20px; font-weight: 800; }
-.result-meta p { color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 3px; }
-.result-score-big { text-align: right; }
-.result-score-big .num { color: white; font-size: 52px; font-weight: 900; line-height: 1; }
-.result-score-big .denom { color: rgba(255,255,255,0.4); font-size: 18px; font-weight: 400; }
-.result-grade {
-  display: inline-block;
-  font-size: 14px; font-weight: 800;
-  padding: 4px 14px; border-radius: 20px;
-  margin-top: 8px;
-}
+/* STEPS GUIDE */
+.steps-guide { background:white; border-radius:var(--radius); box-shadow:var(--shadow-md); padding:22px; margin-bottom:16px; }
+.steps-guide h3 { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:16px; display:flex; align-items:center; gap:7px; }
+.guide-step { display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--gray-100); }
+.guide-step:last-child { border-bottom:none; }
+.guide-num { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); color:white; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.guide-text h4 { font-size:13px; font-weight:700; color:var(--gray-900); margin-bottom:3px; }
+.guide-text p { font-size:12px; color:var(--gray-500); line-height:1.5; }
+.guide-link { display:inline-flex; align-items:center; gap:5px; background:var(--blue); color:white; padding:6px 14px; border-radius:8px; font-size:12px; font-weight:600; text-decoration:none; margin-top:8px; transition:opacity 0.2s; }
+.guide-link:hover { opacity:0.85; }
 
-.score-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
-.score-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 20px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  border-top: 3px solid transparent;
-}
-.score-card.design { border-top-color: var(--blue); }
-.score-card.planning { border-top-color: var(--green); }
-.score-card.common { border-top-color: var(--purple); }
-.sc-label { font-size: 12px; font-weight: 700; color: var(--gray-400); letter-spacing: 0.5px; margin-bottom: 10px; }
-.sc-num { font-size: 40px; font-weight: 900; line-height: 1; }
-.score-card.design .sc-num { color: var(--blue); }
-.score-card.planning .sc-num { color: var(--green); }
-.score-card.common .sc-num { color: var(--purple); }
-.sc-denom { font-size: 13px; color: var(--gray-400); font-weight: 400; }
+/* IMAGE PROCESSING MSG */
+.img-processing { background:var(--amber-light); border:1px solid #fde68a; border-radius:var(--radius-sm); padding:12px 16px; font-size:13px; color:var(--amber); margin-bottom:12px; display:none; }
 
-/* KPI Table section */
-.section {
-  background: white;
-  border-radius: var(--radius);
-  padding: 22px 24px;
-  margin-bottom: 14px;
-  box-shadow: var(--shadow-sm);
-}
-.section-hd {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 18px;
-}
-.section-hd h3 { font-size: 15px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 7px; }
-.section-avg { font-size: 13px; font-weight: 700; color: var(--gray-500); }
-
-.kpi-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.kpi-table th {
-  background: var(--gray-50);
-  padding: 10px 12px;
-  text-align: left;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gray-400);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  border-bottom: 1.5px solid var(--gray-100);
-}
-.kpi-table td {
-  padding: 12px 12px;
-  border-bottom: 1px solid var(--gray-100);
-  vertical-align: middle;
-}
-.kpi-table tr:last-child td { border-bottom: none; }
-.kpi-table tr:hover td { background: #fafbfc; }
-
-.kpi-name-cell { font-weight: 600; color: var(--gray-900); line-height: 1.4; }
-.weight-tag {
-  display: inline-block;
-  font-size: 10px; font-weight: 700;
-  padding: 1px 7px; border-radius: 10px;
-  background: var(--gray-100); color: var(--gray-500);
-  font-family: 'DM Mono', monospace;
-  margin-top: 3px;
-}
-
-.score-cell { min-width: 90px; }
-.score-num { font-size: 17px; font-weight: 800; font-family: 'DM Mono', monospace; }
-.score-bar { height: 5px; border-radius: 3px; background: var(--gray-100); margin-top: 5px; }
-.score-bar-fill { height: 100%; border-radius: 3px; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
-.bar-green { background: var(--green); }
-.bar-amber { background: var(--amber); }
-.bar-red { background: var(--red); }
-
-.status-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
-  white-space: nowrap;
-}
-.status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.s-achieved { background: var(--green-light); color: var(--green); }
-.s-achieved .status-dot { background: var(--green); }
-.s-partial { background: var(--amber-light); color: var(--amber); }
-.s-partial .status-dot { background: var(--amber); }
-.s-fail { background: var(--red-light); color: var(--red); }
-.s-fail .status-dot { background: var(--red); }
-.s-unknown { background: var(--gray-100); color: var(--gray-400); }
-.s-unknown .status-dot { background: var(--gray-400); }
-
-.evidence-cell { font-size: 12px; color: var(--gray-500); line-height: 1.55; }
-.evidence-text { margin-bottom: 4px; }
-.feedback-text { color: var(--navy2); font-weight: 500; font-size: 12px; }
-.feedback-text::before { content: '→ '; color: var(--blue); }
-
-/* Feedback cards */
-.fb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-.fb-card {
-  border-radius: var(--radius-sm);
-  padding: 16px 18px;
-}
-.fb-good { background: var(--green-light); border: 1px solid #a7f3d0; }
-.fb-warn { background: var(--amber-light); border: 1px solid #fde68a; }
-.fb-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-.fb-good .fb-card-label { color: var(--green); }
-.fb-warn .fb-card-label { color: var(--amber); }
-.fb-card ul { list-style: none; padding: 0; }
-.fb-card ul li { font-size: 13px; line-height: 1.6; padding: 3px 0; color: var(--gray-700); }
-.fb-card ul li::before { content: '•  '; font-weight: 700; }
-.fb-good ul li::before { color: var(--green); }
-.fb-warn ul li::before { color: var(--amber); }
-
-.action-list { display: flex; flex-direction: column; gap: 10px; }
-.action-item {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  display: flex; gap: 12px; align-items: flex-start;
-}
-.action-num {
-  width: 24px; height: 24px; border-radius: 50%;
-  background: var(--red); color: white;
-  font-size: 11px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.action-text { font-size: 13px; color: var(--gray-700); line-height: 1.55; }
-
-/* Export row */
-.export-row { display: flex; gap: 10px; margin-top: 4px; margin-bottom: 48px; }
-.export-btn {
-  flex: 1;
-  padding: 12px;
-  border: 1.5px solid var(--gray-200);
-  background: white;
-  color: var(--gray-700);
-  border-radius: var(--radius-sm);
-  font-size: 13px; font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Noto Sans KR', sans-serif;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-}
-.export-btn:hover { border-color: var(--blue); color: var(--blue); background: #eff6ff; }
-
-/* Image count badge */
-.img-count {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: #dbeafe; color: var(--blue);
-  font-size: 12px; font-weight: 600;
-  padding: 4px 12px; border-radius: 20px;
-  margin-top: 10px;
-}
-
-@media (max-width: 680px) {
-  .main { padding: 20px 16px; }
-  .config-row { grid-template-columns: 1fr; }
-  .score-cards { grid-template-columns: 1fr 1fr; }
-  .fb-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  .score-cards { grid-template-columns: 1fr; }
-  .result-header { flex-direction: column; text-align: center; }
-  .result-score-big { text-align: center; }
+@media(max-width:600px) {
+  .main { padding:20px 16px; }
+  .config-row { grid-template-columns:1fr; }
+  .how-steps { flex-direction:column; gap:8px; }
+  .how-step::after { display:none; }
 }
 </style>
 </head>
@@ -469,67 +143,84 @@ body {
         <p>Petsland · 2026 KPI 운영안 기준</p>
       </div>
     </div>
-    <span class="header-badge">v2.0</span>
+    <span class="header-badge">Claude 연동형</span>
   </div>
 </header>
 
 <div class="main">
 
-  <!-- Upload Card -->
-  <div class="upload-card">
-    <div class="upload-card-header">
-      <div class="step-num">1</div>
-      <div>
-        <h2>주간보고서 업로드</h2>
-        <p>파일 업로드 또는 텍스트 붙여넣기 · 이미지(스크린샷) 복수 업로드 지원</p>
+  <!-- How it works -->
+  <div class="how-card">
+    <div class="how-title">💡 사용 방법</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-circle">1</div>
+        <div class="step-label">보고서<br>업로드</div>
       </div>
-    </div>
-    <div class="upload-body">
-      <!-- Drop zone -->
-      <div class="drop-zone" id="dropZone">
-        <input type="file" id="fileInput" accept=".txt,.docx,.doc,.pdf,.jpg,.jpeg,.png,.webp" multiple>
-        <div class="drop-icon">📁</div>
-        <div class="drop-title">파일을 드래그하거나 클릭해서 선택</div>
-        <div class="drop-sub">여러 장의 이미지 스크린샷도 한번에 업로드 가능합니다</div>
-        <div class="drop-chips">
-          <span class="chip highlight">JPG</span>
-          <span class="chip highlight">PNG</span>
-          <span class="chip">TXT</span>
-          <span class="chip">DOCX</span>
-          <span class="chip">PDF</span>
-        </div>
+      <div class="how-step">
+        <div class="step-circle">2</div>
+        <div class="step-label">정보<br>입력</div>
       </div>
-
-      <!-- Image preview grid -->
-      <div id="previewGrid" class="preview-grid" style="display:none"></div>
-      <div id="imgCountBadge" style="display:none; text-align:center">
-        <span class="img-count" id="imgCountText">🖼️ 이미지 0장 선택됨</span>
+      <div class="how-step">
+        <div class="step-circle">3</div>
+        <div class="step-label">프롬프트<br>생성</div>
       </div>
-
-      <div class="or-divider">또는 직접 붙여넣기</div>
-
-      <div class="paste-wrap">
-        <textarea id="pasteArea" placeholder="주간보고서 내용을 여기에 붙여넣으세요...
-
-예) 상기 미팅 안건 / 금주 업무 / 차주 업무 등 내용을 그대로 넣으세요."></textarea>
+      <div class="how-step">
+        <div class="step-circle">4</div>
+        <div class="step-label">Claude에<br>붙여넣기</div>
+      </div>
+      <div class="how-step">
+        <div class="step-circle">5</div>
+        <div class="step-label">KPI<br>결과 확인</div>
       </div>
     </div>
   </div>
 
-  <!-- Config Card -->
-  <div class="upload-card">
-    <div class="upload-card-header">
+  <!-- Step 1: Upload -->
+  <div class="card">
+    <div class="card-header">
+      <div class="step-num">1</div>
+      <div>
+        <h2>주간보고서 업로드</h2>
+        <p>이미지 스크린샷 여러 장 또는 텍스트 파일 · 직접 붙여넣기 가능</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".txt,.docx,.doc,.jpg,.jpeg,.png,.webp" multiple>
+        <div class="drop-icon">📁</div>
+        <div class="drop-title">파일 드래그 또는 클릭해서 선택</div>
+        <div class="drop-sub">주간보고서 스크린샷 여러 장도 OK</div>
+        <div class="drop-chips">
+          <span class="chip hi">JPG</span><span class="chip hi">PNG</span>
+          <span class="chip">TXT</span><span class="chip">DOCX</span>
+        </div>
+      </div>
+      <div id="previewGrid" class="preview-grid" style="display:none"></div>
+      <div id="imgBadge" style="display:none;text-align:center">
+        <span class="img-badge" id="imgBadgeText">🖼️ 이미지 0장</span>
+      </div>
+      <div class="or-div">또는 직접 붙여넣기</div>
+      <textarea id="pasteArea" placeholder="주간보고서 내용을 여기에 붙여넣으세요...
+
+예) 금주 업무 / 차주 업무 / 프로젝트 진행현황 등"></textarea>
+    </div>
+  </div>
+
+  <!-- Step 2: Config -->
+  <div class="card">
+    <div class="card-header">
       <div class="step-num">2</div>
       <div>
         <h2>평가 정보 입력</h2>
-        <p>평가 주차, 팀원, 파트를 선택해 주세요</p>
+        <p>평가 주차, 팀원, 파트를 선택하세요</p>
       </div>
     </div>
-    <div class="upload-body">
+    <div class="card-body">
       <div class="config-row">
         <div class="field">
           <label>평가 주차</label>
-          <input type="text" id="periodInput" placeholder="예: 2026년 5월 4주차">
+          <input type="text" id="periodInput" placeholder="예: 2026년 6월 1주차">
         </div>
         <div class="field">
           <label>평가 대상 팀원</label>
@@ -547,50 +238,84 @@ body {
     </div>
   </div>
 
-  <!-- Analyze Button -->
-  <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">
-    <span>🔍</span> KPI 분석 시작
+  <!-- Generate -->
+  <button class="gen-btn" onclick="generate()">
+    ✨ KPI 분석 프롬프트 생성
   </button>
 
-  <!-- Loading -->
-  <div class="loading" id="loading">
-    <div class="spinner-ring"></div>
-    <div class="loading-msg" id="loadingMsg">이미지에서 텍스트를 추출하는 중...</div>
-    <div class="loading-sub" id="loadingSub">KPI 운영안 기준으로 항목별 분석을 진행합니다</div>
-    <div class="loading-progress"><div class="loading-bar"></div></div>
-  </div>
+  <!-- Result -->
+  <div class="result-box" id="resultBox">
 
-  <!-- Results -->
-  <div class="results" id="results"></div>
+    <!-- Image note -->
+    <div class="img-processing" id="imgNote">
+      ⚠️ 이미지를 업로드하셨습니다. 아래 프롬프트에 이미지 내용이 포함되지 않으므로, Claude에 붙여넣을 때 <strong>이미지도 함께 첨부</strong>해 주세요.
+    </div>
+
+    <!-- Prompt output -->
+    <div class="prompt-card">
+      <div class="prompt-header">
+        <h3>✅ 생성 완료 — 아래를 Claude에 붙여넣으세요</h3>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">📋 전체 복사</button>
+      </div>
+      <div class="prompt-body">
+        <div class="prompt-text" id="promptText"></div>
+      </div>
+    </div>
+
+    <!-- Guide -->
+    <div class="steps-guide">
+      <h3>📌 다음 단계 — Claude에서 결과 받기</h3>
+      <div class="guide-step">
+        <div class="guide-num">1</div>
+        <div class="guide-text">
+          <h4>Claude.ai 열기</h4>
+          <p>새 채팅창을 여세요</p>
+          <a class="guide-link" href="https://claude.ai" target="_blank">🔗 Claude.ai 열기</a>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">2</div>
+        <div class="guide-text">
+          <h4>프롬프트 붙여넣기</h4>
+          <p>위 "전체 복사" 버튼을 누른 뒤 Claude 채팅창에 Ctrl+V로 붙여넣으세요</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">3</div>
+        <div class="guide-text">
+          <h4>이미지 첨부 (이미지 업로드 시)</h4>
+          <p>주간보고서 스크린샷을 Claude 채팅창에 함께 첨부하고 전송하세요</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">4</div>
+        <div class="guide-text">
+          <h4>KPI 분석 결과 확인</h4>
+          <p>Claude가 KPI 운영안 기준으로 항목별 점수, 피드백, 팀장 조치사항을 작성해줍니다</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </div>
 
 <script>
-// ── State ──
-let uploadedImages = []; // {file, base64, name}
+let uploadedImages = [];
 let textContent = '';
 
-// ── Drag & Drop ──
+// Drag & Drop
 const dropZone = document.getElementById('dropZone');
 dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('active'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('active'));
-dropZone.addEventListener('drop', e => {
-  e.preventDefault(); dropZone.classList.remove('active');
-  handleFiles(Array.from(e.dataTransfer.files));
-});
-document.getElementById('fileInput').addEventListener('change', e => {
-  handleFiles(Array.from(e.target.files));
-});
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('active'); handleFiles(Array.from(e.dataTransfer.files)); });
+document.getElementById('fileInput').addEventListener('change', e => handleFiles(Array.from(e.target.files)));
 
 function handleFiles(files) {
   files.forEach(file => {
-    const isImage = file.type.startsWith('image/');
-    if (isImage) {
+    if (file.type.startsWith('image/')) {
       const reader = new FileReader();
-      reader.onload = e => {
-        uploadedImages.push({ file, base64: e.target.result, name: file.name });
-        renderPreviews();
-      };
+      reader.onload = e => { uploadedImages.push({ base64: e.target.result, name: file.name }); renderPreviews(); };
       reader.readAsDataURL(file);
     } else {
       const reader = new FileReader();
@@ -602,368 +327,179 @@ function handleFiles(files) {
 
 function renderPreviews() {
   const grid = document.getElementById('previewGrid');
-  const badge = document.getElementById('imgCountBadge');
-  const countText = document.getElementById('imgCountText');
-  if (uploadedImages.length === 0) {
-    grid.style.display = 'none'; badge.style.display = 'none'; return;
-  }
+  const badge = document.getElementById('imgBadge');
+  if (!uploadedImages.length) { grid.style.display='none'; badge.style.display='none'; return; }
   grid.style.display = 'grid'; badge.style.display = 'block';
-  countText.textContent = `🖼️ 이미지 ${uploadedImages.length}장 선택됨`;
-  grid.innerHTML = uploadedImages.map((img, i) => `
+  document.getElementById('imgBadgeText').textContent = `🖼️ 이미지 ${uploadedImages.length}장 선택됨`;
+  grid.innerHTML = uploadedImages.map((img,i) => `
     <div class="preview-item">
       <img src="${img.base64}" alt="${img.name}">
-      <button class="remove-btn" onclick="removeImage(${i})">✕</button>
-      <div class="preview-label">${i+1}</div>
-    </div>
-  `).join('');
+      <button class="rm" onclick="removeImg(${i})">✕</button>
+      <div class="num">${i+1}</div>
+    </div>`).join('');
 }
 
-function removeImage(i) {
-  uploadedImages.splice(i, 1);
-  renderPreviews();
-}
+function removeImg(i) { uploadedImages.splice(i,1); renderPreviews(); }
 
-// ── KPI Spec (운영안 전문) ──
 const KPI_SPEC = `
-[디자인 파트 주간 KPI - 비중 합계 100%]
-1. 상세페이지 제작 일정 준수율 (25%) - 목표: 95%이상, 측정: 요청일정 대비 완료율
-2. 배너/광고 이미지 작업 대응 (15%) - 목표: 평균 2일 이내, 측정: 요청~완료 기간
-3. 긴급 업무 대응률 (10%) - 목표: 당일 처리 90%이상, 측정: 긴급 요청 완료율
-4. 디자인 수정 횟수 (15%) - 목표: 평균 2회 이하, 측정: 수정 요청 횟수
-5. 협업 커뮤니케이션 (10%) - 목표: 피드백 지연 없음, 측정: 일정 공유 및 응답
-6. 작업 우선순위 관리 (10%) - 목표: 누락 0건, 측정: 업무 누락 여부
-7. 파일 관리 및 데이터 정리 (15%) - 목표: 주간 정리 완료, 측정: 서버/파일 관리
+【디자인 파트 주간 KPI】
+1. 상세페이지 제작 일정 준수율 (비중 25%) — 목표: 95% 이상
+2. 배너/광고 이미지 작업 대응 (비중 15%) — 목표: 평균 2일 이내
+3. 긴급 업무 대응률 (비중 10%) — 목표: 당일 처리 90% 이상
+4. 디자인 수정 횟수 (비중 15%) — 목표: 평균 2회 이하
+5. 협업 커뮤니케이션 (비중 10%) — 목표: 피드백 지연 없음
+6. 작업 우선순위 관리 (비중 10%) — 목표: 누락 0건
+7. 파일 관리 및 데이터 정리 (비중 15%) — 목표: 주간 정리 완료
 
-[상품기획 파트 주간 KPI - 비중 합계 100%]
-1. 신상품 개발 진행률 (20%) - 목표: 일정 준수, 측정: 개발 단계 달성률
-2. 업체 핸들링 대응 (15%) - 목표: 이슈 지연 없음, 측정: 피드백 속도
-3. 제품 검수 정확도 (15%) - 목표: 불량 사전 발견, 측정: 검수 이슈 건수
-4. 상세페이지 기획 전달 (15%) - 목표: 일정 내 전달, 측정: 디자인 협업 일정
-5. 촬영 기획 준비 (10%) - 목표: 누락 없음, 측정: 촬영 준비 체크
-6. 리뷰/VOC 확인 (10%) - 목표: 주간 분석 완료, 측정: VOC 정리 여부
-7. 협업 커뮤니케이션 (15%) - 목표: 일정 공유 및 피드백, 측정: 협업 대응
+【상품기획 파트 주간 KPI】
+1. 신상품 개발 진행률 (비중 20%) — 목표: 일정 준수
+2. 업체 핸들링 대응 (비중 15%) — 목표: 이슈 지연 없음
+3. 제품 검수 정확도 (비중 15%) — 목표: 불량 사전 발견
+4. 상세페이지 기획 전달 (비중 15%) — 목표: 일정 내 전달
+5. 촬영 기획 준비 (비중 10%) — 목표: 누락 없음
+6. 리뷰/VOC 확인 (비중 10%) — 목표: 주간 분석 완료
+7. 협업 커뮤니케이션 (비중 15%) — 목표: 일정 공유 및 피드백
 
-[팀 공통 KPI - 비중 합계 100%]
-1. 신상품 런칭 일정 준수율 (25%) - 목표: 90%이상
-2. 상세페이지 오픈 일정 준수율 (20%) - 목표: 95%이상
-3. 제품 촬영 일정 준수율 (15%) - 목표: 지연 최소화
-4. 협업 만족도 (15%) - 목표: 평균 4점이상
-5. VOC 개선 반영률 (10%) - 목표: 월별 반영 진행
-6. 시즌 프로젝트 성공률 (15%) - 목표: 주요 프로젝트 완료
+【팀 공통 KPI】
+1. 신상품 런칭 일정 준수율 (비중 25%) — 목표: 90% 이상
+2. 상세페이지 오픈 일정 준수율 (비중 20%) — 목표: 95% 이상
+3. 제품 촬영 일정 준수율 (비중 15%) — 목표: 지연 최소화
+4. 협업 만족도 (비중 15%) — 목표: 평균 4점 이상
+5. VOC 개선 반영률 (비중 10%) — 목표: 월별 반영 진행
+6. 시즌 프로젝트 성공률 (비중 15%) — 목표: 주요 프로젝트 완료
 
-[업무 난이도 가중치]
-A등급(신제품 상세페이지 신규제작, 신상품 런칭) = 1.5배
-B등급(기획전/광고 배너 제작) = 1.2배
-C등급(단순 수정 업무) = 1.0배
+【평가 원칙】
+- 개인KPI 70% + 공통KPI 30%
+- 업무 난이도 가중치: A등급(신제품 상세페이지/신상품 런칭)=1.5, B등급(기획전/광고배너)=1.2, C등급(단순수정)=1.0
+- 정량+정성 혼합 평가 (건수 아닌 결과 품질 중심)`;
 
-[평가 원칙]
-- 개인KPI 70% + 공통KPI 30% 혼합
-- 정량+정성 혼합 평가 (건수 중심 아닌 결과 품질 평가)
-- 상세페이지 제작 완료율 + 수정률 + 일정 준수율 종합
-`;
-
-// ── Step 1: Extract text from images via Claude Vision ──
-async function extractFromImages(images) {
-  if (images.length === 0) return '';
-  setLoading('🖼️ 이미지에서 텍스트 추출 중...', `${images.length}장 분석 중입니다`);
-
-  const imageContent = images.map(img => {
-    const mediaType = img.file.type || 'image/jpeg';
-    const base64Data = img.base64.split(',')[1];
-    return { type: 'image', source: { type: 'base64', media_type: mediaType, data: base64Data } };
-  });
-  imageContent.push({
-    type: 'text',
-    text: '위 이미지들은 업무 주간보고서 스크린샷입니다. 이미지에서 모든 텍스트를 빠짐없이 추출하여 원문 그대로 출력해주세요. 표, 리스트, 날짜, 업무 내용 등 모든 텍스트를 포함하세요. JSON이나 마크다운 없이 순수 텍스트로만 출력하세요.'
-  });
-
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 3000,
-      messages: [{ role: 'user', content: imageContent }]
-    })
-  });
-  const data = await response.json();
-  return data.content.map(c => c.text || '').join('');
-}
-
-// ── Step 2: Analyze KPI ──
-async function analyzeKPI(content, period, member, part) {
-  setLoading('📊 KPI 항목 분석 중...', 'KPI 운영안 기준으로 항목별 점수를 산출합니다');
-
-  const prompt = `당신은 펫츠랜드(Petsland) 상품개발팀 KPI 평가 전문가입니다.
-아래 KPI 운영안 기준으로 주간보고서를 분석하여 JSON으로만 응답하세요.
-
-KPI 운영안:
-${KPI_SPEC}
-
-평가 대상: ${member} / 기간: ${period} / 파트: ${part === 'all' ? '디자인+상품기획 전체' : part === 'design' ? '디자인 파트' : '상품기획 파트'}
-
-주간보고서 내용:
-${content.substring(0, 6000)}
-
-다음 JSON 형식으로만 응답 (JSON 외 텍스트 없이):
-{
-  "period": "${period}",
-  "member": "${member}",
-  "design_kpi": [
-    {"name":"상세페이지 제작 일정 준수율","weight":25,"score":85,"status":"달성","evidence":"보고서 근거","feedback":"구체적 피드백"},
-    {"name":"배너/광고 이미지 작업 대응","weight":15,"score":75,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"긴급 업무 대응률","weight":10,"score":90,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"디자인 수정 횟수","weight":15,"score":80,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"협업 커뮤니케이션","weight":10,"score":80,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"작업 우선순위 관리","weight":10,"score":90,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"파일 관리 및 데이터 정리","weight":15,"score":70,"status":"부분달성","evidence":"근거","feedback":"피드백"}
-  ],
-  "planning_kpi": [
-    {"name":"신상품 개발 진행률","weight":20,"score":80,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"업체 핸들링 대응","weight":15,"score":85,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"제품 검수 정확도","weight":15,"score":75,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"상세페이지 기획 전달","weight":15,"score":70,"status":"부분달성","evidence":"근거","feedback":"피드백"},
-    {"name":"촬영 기획 준비","weight":10,"score":90,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"리뷰/VOC 확인","weight":10,"score":65,"status":"미달","evidence":"근거","feedback":"피드백"},
-    {"name":"협업 커뮤니케이션","weight":15,"score":80,"status":"달성","evidence":"근거","feedback":"피드백"}
-  ],
-  "common_kpi": [
-    {"name":"신상품 런칭 일정 준수율","weight":25,"score":85,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"상세페이지 오픈 일정 준수율","weight":20,"score":90,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"제품 촬영 일정 준수율","weight":15,"score":80,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"협업 만족도","weight":15,"score":80,"status":"달성","evidence":"근거","feedback":"피드백"},
-    {"name":"VOC 개선 반영률","weight":10,"score":70,"status":"부분달성","evidence":"근거","feedback":"피드백"},
-    {"name":"시즌 프로젝트 성공률","weight":15,"score":85,"status":"달성","evidence":"근거","feedback":"피드백"}
-  ],
-  "design_total": 80,
-  "planning_total": 78,
-  "common_total": 82,
-  "final_score": 80,
-  "grade": "A",
-  "summary_good": ["잘한점1(보고서 근거 포함)","잘한점2"],
-  "summary_improve": ["개선필요1","개선필요2"],
-  "manager_action": ["팀장 조치사항1","조치사항2"]
-}
-
-반드시 보고서 내용에서 실제 근거를 찾아 evidence와 feedback을 작성하세요. 언급이 없는 항목은 score:50, status:"정보부족"으로 처리하세요.`;
-
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 3000,
-      messages: [{ role: 'user', content: prompt }]
-    })
-  });
-  const data = await response.json();
-  const raw = data.content.map(c => c.text || '').join('');
-  return JSON.parse(raw.replace(/```json|```/g, '').trim());
-}
-
-function setLoading(msg, sub) {
-  document.getElementById('loadingMsg').textContent = msg;
-  document.getElementById('loadingSub').textContent = sub;
-}
-
-// ── Main analyze flow ──
-async function analyze() {
+function generate() {
   const paste = document.getElementById('pasteArea').value.trim();
-  if (uploadedImages.length === 0 && !paste && !textContent) {
-    alert('보고서 파일을 업로드하거나 내용을 붙여넣어 주세요.');
-    return;
-  }
   const period = document.getElementById('periodInput').value || '이번 주';
   const member = document.getElementById('memberInput').value || '팀원';
   const part = document.getElementById('partSelect').value;
+  const partLabel = part==='all'?'디자인+상품기획 전체':part==='design'?'디자인 파트':'상품기획 파트';
 
-  document.getElementById('loading').style.display = 'block';
-  document.getElementById('results').style.display = 'none';
-  document.getElementById('analyzeBtn').disabled = true;
+  const hasImages = uploadedImages.length > 0;
+  const hasText = paste || textContent;
 
-  try {
-    // Step 1: image → text (if any)
-    let extracted = '';
-    if (uploadedImages.length > 0) {
-      extracted = await extractFromImages(uploadedImages);
-    }
-
-    // Step 2: combine all text sources
-    const combined = [extracted, textContent, paste].filter(Boolean).join('\n\n');
-
-    // Step 3: KPI analysis
-    const result = await analyzeKPI(combined, period, member, part);
-
-    document.getElementById('loading').style.display = 'none';
-    renderResults(result, part);
-  } catch(err) {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('analyzeBtn').disabled = false;
-    alert('오류가 발생했습니다: ' + err.message);
+  if (!hasImages && !hasText) {
+    alert('보고서 파일을 업로드하거나 내용을 붙여넣어 주세요.');
+    return;
   }
-}
 
-// ── Render ──
-function barColor(s) { return s >= 80 ? 'bar-green' : s >= 60 ? 'bar-amber' : 'bar-red'; }
-function statusClass(st) {
-  if (st === '달성') return 's-achieved';
-  if (st === '부분달성') return 's-partial';
-  if (st === '미달') return 's-fail';
-  return 's-unknown';
-}
-function autoGrade(s) { return s >= 90 ? 'S' : s >= 80 ? 'A' : s >= 70 ? 'B' : 'C'; }
-function gradeStyle(g) {
-  const map = { S:'background:#fef3c7;color:#d97706', A:'background:#d1fae5;color:#059669', B:'background:#dbeafe;color:#2563eb', C:'background:#fee2e2;color:#dc2626' };
-  return map[g] || map.C;
-}
+  let reportSection = '';
+  if (hasImages && !hasText) {
+    reportSection = `[주간보고서]
+첨부된 이미지(스크린샷)를 참고해서 분석해 주세요.`;
+  } else if (hasImages && hasText) {
+    reportSection = `[주간보고서]
+첨부 이미지와 아래 텍스트를 모두 참고해서 분석해 주세요.
 
-function kpiTableHTML(items) {
-  return `
-  <table class="kpi-table">
-    <thead><tr>
-      <th>KPI 항목</th><th>비중</th><th>점수</th><th>상태</th><th>근거 / 피드백</th>
-    </tr></thead>
-    <tbody>
-    ${items.map(item => `
-      <tr>
-        <td class="kpi-name-cell">
-          ${item.name}
-          <br><span class="weight-tag">${item.weight}%</span>
-        </td>
-        <td class="score-cell">
-          <span class="score-num" style="color:${item.score>=80?'var(--green)':item.score>=60?'var(--amber)':'var(--red)'}">${item.score}</span>
-          <div class="score-bar"><div class="score-bar-fill ${barColor(item.score)}" style="width:${item.score}%"></div></div>
-        </td>
-        <td></td>
-        <td><span class="status-badge ${statusClass(item.status)}"><span class="status-dot"></span>${item.status}</span></td>
-        <td class="evidence-cell">
-          <div class="evidence-text">${item.evidence || '—'}</div>
-          ${item.feedback ? `<div class="feedback-text">${item.feedback}</div>` : ''}
-        </td>
-      </tr>
-    `).join('')}
-    </tbody>
-  </table>`;
-}
+${paste || textContent}`;
+  } else {
+    reportSection = `[주간보고서]
+${paste || textContent}`;
+  }
 
-function renderResults(r, part) {
-  document.getElementById('results').style.display = 'block';
-  document.getElementById('analyzeBtn').disabled = false;
-  const showD = part === 'all' || part === 'design';
-  const showP = part === 'all' || part === 'planning';
-  const g = r.grade || autoGrade(r.final_score);
+  const prompt = `당신은 펫츠랜드(Petsland) 상품개발팀 KPI 평가 전문가입니다.
+아래 KPI 운영안과 주간보고서를 바탕으로 상세한 KPI 평가를 진행해 주세요.
 
-  const html = `
-    <div class="result-header">
-      <div class="result-meta">
-        <h2>${r.member}</h2>
-        <p>${r.period} · KPI 평가 결과</p>
-        <span class="result-grade" style="${gradeStyle(g)}">${g}등급</span>
-      </div>
-      <div class="result-score-big">
-        <div><span class="num">${r.final_score}</span><span class="denom"> / 100</span></div>
-        <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:4px">종합 KPI (개인70%+공통30%)</div>
-      </div>
-    </div>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 KPI 운영안 (2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${KPI_SPEC}
 
-    <div class="score-cards">
-      ${showD ? `<div class="score-card design">
-        <div class="sc-label">🎨 디자인 파트</div>
-        <div class="sc-num">${r.design_total}<span class="sc-denom"> pt</span></div>
-        <div style="margin-top:8px"><span class="result-grade" style="${gradeStyle(autoGrade(r.design_total))}">${autoGrade(r.design_total)}등급</span></div>
-      </div>` : ''}
-      ${showP ? `<div class="score-card planning">
-        <div class="sc-label">📦 상품기획 파트</div>
-        <div class="sc-num">${r.planning_total}<span class="sc-denom"> pt</span></div>
-        <div style="margin-top:8px"><span class="result-grade" style="${gradeStyle(autoGrade(r.planning_total))}">${autoGrade(r.planning_total)}등급</span></div>
-      </div>` : ''}
-      <div class="score-card common">
-        <div class="sc-label">🤝 팀 공통</div>
-        <div class="sc-num">${r.common_total}<span class="sc-denom"> pt</span></div>
-        <div style="margin-top:8px"><span class="result-grade" style="${gradeStyle(autoGrade(r.common_total))}">${autoGrade(r.common_total)}등급</span></div>
-      </div>
-    </div>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 평가 정보
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- 평가 대상: ${member}
+- 평가 기간: ${period}
+- 평가 파트: ${partLabel}
 
-    ${showD ? `<div class="section">
-      <div class="section-hd">
-        <h3>🎨 디자인 파트 KPI 세부 평가</h3>
-        <span class="section-avg">${r.design_total}점</span>
-      </div>
-      ${kpiTableHTML(r.design_kpi)}
-    </div>` : ''}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${reportSection}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    ${showP ? `<div class="section">
-      <div class="section-hd">
-        <h3>📦 상품기획 파트 KPI 세부 평가</h3>
-        <span class="section-avg">${r.planning_total}점</span>
-      </div>
-      ${kpiTableHTML(r.planning_kpi)}
-    </div>` : ''}
+위 내용을 바탕으로 아래 형식으로 KPI 평가를 작성해 주세요:
 
-    <div class="section">
-      <div class="section-hd">
-        <h3>🤝 팀 공통 KPI 세부 평가</h3>
-        <span class="section-avg">${r.common_total}점</span>
-      </div>
-      ${kpiTableHTML(r.common_kpi)}
-    </div>
+## 📊 ${member} KPI 평가 결과 (${period})
 
-    <div class="section">
-      <div class="section-hd"><h3>💬 종합 피드백</h3></div>
-      <div class="fb-grid">
-        <div class="fb-card fb-good">
-          <div class="fb-card-label">✅ 잘한 점</div>
-          <ul>${r.summary_good.map(g=>`<li>${g}</li>`).join('')}</ul>
-        </div>
-        <div class="fb-card fb-warn">
-          <div class="fb-card-label">⚠️ 개선 필요</div>
-          <ul>${r.summary_improve.map(i=>`<li>${i}</li>`).join('')}</ul>
-        </div>
-      </div>
-    </div>
+### 🎨 디자인 파트 KPI${part==='planning'?' (해당없음)':''}
+| KPI 항목 | 비중 | 점수(/100) | 상태 | 근거 및 피드백 |
+|---------|------|-----------|------|--------------|
+(각 항목별 작성)
+**디자인 파트 합계: ___점**
 
-    <div class="section">
-      <div class="section-hd"><h3>📋 팀장 조치사항</h3></div>
-      <div class="action-list">
-        ${r.manager_action.map((a,i)=>`
-          <div class="action-item">
-            <div class="action-num">${i+1}</div>
-            <div class="action-text">${a}</div>
-          </div>`).join('')}
-      </div>
-    </div>
+### 📦 상품기획 파트 KPI${part==='design'?' (해당없음)':''}
+| KPI 항목 | 비중 | 점수(/100) | 상태 | 근거 및 피드백 |
+|---------|------|-----------|------|--------------|
+(각 항목별 작성)
+**상품기획 파트 합계: ___점**
 
-    <div class="export-row">
-      <button class="export-btn" onclick="copyText()">📋 결과 복사</button>
-      <button class="export-btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
-    </div>
-  `;
-  document.getElementById('results').innerHTML = html;
-  window._lastResult = r;
+### 🤝 팀 공통 KPI
+| KPI 항목 | 비중 | 점수(/100) | 상태 | 근거 및 피드백 |
+|---------|------|-----------|------|--------------|
+(각 항목별 작성)
+**공통 KPI 합계: ___점**
+
+### 🏆 종합 점수
+- 개인 KPI 점수: ___점 × 70% = ___점
+- 공통 KPI 점수: ___점 × 30% = ___점
+- **최종 합계: ___점 (___등급)**
+  - S등급: 90점 이상 / A등급: 80~89점 / B등급: 70~79점 / C등급: 70점 미만
+
+### ✅ 잘한 점
+1. 
+2. 
+
+### ⚠️ 개선 필요 사항
+1. 
+2. 
+
+### 📋 팀장 조치사항
+1. 
+2. 
+
+보고서에 언급이 없는 항목은 "정보 부족 (50점)"으로 처리하고, 보고서에서 찾은 실제 근거를 바탕으로 피드백을 작성해 주세요.`;
+
+  document.getElementById('promptText').textContent = prompt;
+  document.getElementById('resultBox').style.display = 'block';
+  document.getElementById('imgNote').style.display = hasImages ? 'block' : 'none';
+  document.getElementById('copyBtn').textContent = '📋 전체 복사';
+  document.getElementById('copyBtn').className = 'copy-btn';
+
+  // scroll to result
   setTimeout(() => {
-    document.querySelectorAll('.score-bar-fill').forEach(el => {
-      const w = el.style.width; el.style.width = '0';
-      requestAnimationFrame(() => { el.style.width = w; });
-    });
+    document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 100);
 }
 
-function copyText() {
-  const r = window._lastResult;
-  if (!r) return;
-  const t = `[KPI 평가] ${r.member} / ${r.period}
-종합: ${r.final_score}점 (${r.grade}등급)
-디자인: ${r.design_total}점 | 상품기획: ${r.planning_total}점 | 공통: ${r.common_total}점
+function copyPrompt() {
+  const text = document.getElementById('promptText').textContent;
+  const btn = document.getElementById('copyBtn');
 
-[잘한 점]
-${r.summary_good.map((g,i)=>`${i+1}. ${g}`).join('\n')}
+  // textarea 방식 (HTTPS 여부 무관하게 동작)
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
 
-[개선 필요]
-${r.summary_improve.map((g,i)=>`${i+1}. ${g}`).join('\n')}
-
-[팀장 조치사항]
-${r.manager_action.map((a,i)=>`${i+1}. ${a}`).join('\n')}`;
-  navigator.clipboard.writeText(t).then(() => alert('클립보드에 복사되었습니다!'));
+  try {
+    document.execCommand('copy');
+    btn.textContent = '✅ 복사됨!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 전체 복사';
+      btn.classList.remove('copied');
+    }, 2000);
+  } catch(e) {
+    // 그래도 안되면 선택만 해서 수동 복사 안내
+    btn.textContent = 'Ctrl+C 로 복사하세요';
+  }
+  document.body.removeChild(ta);
 }
 </script>
 </body>
